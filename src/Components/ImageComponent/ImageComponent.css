@@ -1,0 +1,11 @@
+.image-component__image {
+    width: 295px;
+    height: 280px;
+    margin-bottom: 1rem;
+}
+
+.image-component__buttons__favorite,
+.image-component__buttons__download,
+.image-component__buttons__edit {
+    font-size: 18px;
+}
