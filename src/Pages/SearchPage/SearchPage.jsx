@@ -1,6 +1,14 @@
+import { Link } from "react-router-dom";
+
 const SearchPage = () => {
     return (
-        <p>Hey man</p>
+        <>
+        <header className="header">
+        <Link to="favorites"><button>Favorites</button></Link>
+        <p>High-quality images</p>
+        <p>for high-quality projects</p>
+        </header>
+        </>
     )
 }
 
