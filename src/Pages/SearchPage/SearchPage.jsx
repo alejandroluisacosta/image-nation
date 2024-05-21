@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer";
 
 const SearchPage = () => {
     return (
@@ -8,6 +9,7 @@ const SearchPage = () => {
         <p>High-quality images</p>
         <p>for high-quality projects</p>
         </header>
+        <Footer/>
         </>
     )
 }
