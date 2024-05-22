@@ -21,7 +21,7 @@ const GetInitialImagesThunk = createAsyncThunk("Search/GetInitialImages", async 
 
 export const GetSearchedImagesThunk = createAsyncThunk('Search/GetSearchedImages', async (term) => {
     try {
-        const request = await fetch(`https://api.unsplash.com/photos?query=${term}`,
+        const request = await fetch(`https://api.unsplash.com/search/photos?query=${term}`,
             {
                 method: 'GET',
                 headers: {'Authorization': 'Client-ID WUIf-dHIq-KxSKQz1So92KwdAmWrxigCMcuZN5RhhNM'}
@@ -29,7 +29,7 @@ export const GetSearchedImagesThunk = createAsyncThunk('Search/GetSearchedImages
         );
         if (request.ok) {
             const SearchedImages = await request.json();
-            return SearchedImages;
+            return SearchedImages.results;
         }
         return false;
     }
