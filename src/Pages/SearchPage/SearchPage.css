@@ -2,4 +2,29 @@
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('src/assets/HeaderImage.png');
     color: white;
     margin-bottom: 3.5rem;
+    padding: 1.75rem 1.75rem 5.5rem 1.75rem;
+}
+
+.header__navbar {
+    margin-bottom: 2.0625rem;
+}
+
+.header__title {
+    margin-bottom: 0.75rem;
+}
+
+.header__subtitle {
+    margin-top: 0;
+}
+
+.image-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5%;
+}
+
+.footer {
+    position: absolute;
+    width: 100%
 }

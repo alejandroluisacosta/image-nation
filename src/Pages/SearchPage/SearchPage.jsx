@@ -46,20 +46,22 @@ const SearchPage = () => {
 
     return <>
         <header className="header">
-            <Navbar />
-            <h2>High-quality images</h2>
-            <p>for high-quality projects</p>
-            <Input placeholder="Search" onKeyDown={searchSubmitHandler}/>;
+            <Navbar className="header__navbar navbar"/>
+            <h2 className="header__title">High-quality images</h2>
+            <p className="header__subtitle">for high-quality projects</p>
+            <Input className="header__search-bar" placeholder="Search" onKeyDown={searchSubmitHandler}/>
         </header>
         {loading ?
         <p>Loading...</p>
         :
-        <div>
+        <>
+        <div className="image-list">
             {images.map((image, index) => (
                 <ImageComponent isSearchPage={true} authorName={image.user.name} image={image.urls.small} downloadLink={image.urls.full} key={index}/>
             ))}
-            <Footer/>
         </div>
+        <Footer className="footer"/>
+        </>
         }
         </>
 }

@@ -2,3 +2,8 @@
     display: flex;
     justify-content: space-between;
 }
+
+.navbar__button {
+    font-size: 0.75rem;
+    border-radius: 2px;
+}

@@ -2,6 +2,10 @@ html {
   font-size: 16px;
 }
 
+body {
+  margin: 0
+}
+
 :root {
   font-family: Kodchasan, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
