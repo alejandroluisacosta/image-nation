@@ -906,21 +906,28 @@ const SearchPage = () => {
             setLoading(true);
         else if (ImagesStatus === 'fulfilled') {
             setLoading(false);
+            console.log(Images); 
             setImages(Images);
         }
     }, [])
 
     return <>
-        <header className="header">
-        <Navbar />
-        <p>High-quality images</p>
-        <p>for high-quality projects</p>
-        <Input placeholder="Search" />;
-        </header>
-        {images.map((image, index) => (
-            <ImageComponent isSearchPage={true} authorName={image.user.name} image={image.urls.small} downloadLink={image.urls.full} key={index}/>
-        ))}
-        <Footer/>
+        {loading ?
+        <p>Loading...</p>
+        :
+        <div>
+            <header className="header">
+            <Navbar />
+            <p>High-quality images</p>
+            <p>for high-quality projects</p>
+            <Input placeholder="Search" />;
+            </header>
+            {images.map((image, index) => (
+                <ImageComponent isSearchPage={true} authorName={image.user.name} image={image.urls.small} downloadLink={image.urls.full} key={index}/>
+            ))}
+            <Footer/>
+        </div>
+        }
         </>
 }
 
