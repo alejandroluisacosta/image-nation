@@ -28,3 +28,40 @@
     position: absolute;
     width: 100%
 }
+
+@media only screen and (min-height: 500px) {
+
+    .header {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('src/assets/HeaderImageDesktop.jpeg');
+        background-size: cover;
+        background-position: center 25%;
+    }
+
+    .header__content {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+
+    .header__content input {
+        width: 100%;
+    }
+
+    .header__title {
+        font-size: 46px;
+        font-weight: 400;
+    }
+
+    .header__subtitle {
+        font-size: 24px;
+    }
+
+    .navbar__button {
+        font-size: 18px;
+    }
+
+    .image-list {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

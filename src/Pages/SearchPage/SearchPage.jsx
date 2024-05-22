@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import Input from '@mui/joy/Input';
 import { useDispatch, useSelector } from "react-redux";
 import GetInitialImagesThunk, { GetSearchedImagesThunk } from "../../Features/Search/SearchThunk";
+import { CircularProgress } from "@mui/joy";
 
 const SearchPage = () => {
 
@@ -47,12 +48,14 @@ const SearchPage = () => {
     return <>
         <header className="header">
             <Navbar className="header__navbar navbar"/>
-            <h2 className="header__title">High-quality images</h2>
-            <p className="header__subtitle">for high-quality projects</p>
-            <Input className="header__search-bar" placeholder="Search" onKeyDown={searchSubmitHandler}/>
+            <div className="header__content">
+                <h2 className="header__title">High-quality images</h2>
+                <p className="header__subtitle">for high-quality projects</p>
+                <Input className="header__search-bar" placeholder="Search" onKeyDown={searchSubmitHandler}/>
+            </div>
         </header>
         {loading ?
-        <p>Loading...</p>
+        <CircularProgress />
         :
         <>
         <div className="image-list">
