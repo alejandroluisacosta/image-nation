@@ -4,7 +4,7 @@ import Button from '@mui/joy/Button';
 import ButtonGroup from '@mui/joy/ButtonGroup';
 import IconButton from '@mui/joy/IconButton';
 
-const ImageComponent = (props) => {
+const ImageComponent = ({ isSearchPage, authorName, image}) => {
 
     const favoriteButtons = <ButtonGroup className="image-component__buttons" aria-label="outlined primary button group">
     <IconButton>
@@ -38,9 +38,9 @@ const ImageComponent = (props) => {
     </ButtonGroup>
     return (
         <article className="image-component">
-            <h3 className="image-component__author">Author Name</h3>
-            <img className="image-component__image" src='src/assets/owl.jpeg' alt="owl"/>
-            {props.isSearchPage ? searchButtons : favoriteButtons}
+            <h3 className="image-component__author">{authorName}</h3>
+            <img className="image-component__image" src={image} alt="owl"/>
+            {isSearchPage ? searchButtons : favoriteButtons}
         </article>
     )
 }
