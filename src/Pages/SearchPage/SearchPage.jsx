@@ -898,7 +898,7 @@ const SearchPage = () => {
         <Input placeholder="Search" />;
         </header>
         {testImages.map((image, index) => (
-            <ImageComponent isSearchPage={true} authorName={image.user.name} image={image.urls.small} key={index}/>
+            <ImageComponent isSearchPage={true} authorName={image.user.name} image={image.urls.small} downloadLink={image.urls.full} key={index}/>
         ))}
         <Footer/>
         </>

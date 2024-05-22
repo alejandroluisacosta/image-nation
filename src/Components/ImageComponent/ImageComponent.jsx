@@ -4,7 +4,7 @@ import Button from '@mui/joy/Button';
 import ButtonGroup from '@mui/joy/ButtonGroup';
 import IconButton from '@mui/joy/IconButton';
 
-const ImageComponent = ({ isSearchPage, authorName, image}) => {
+const ImageComponent = ({ isSearchPage, authorName, image, downloadLink }) => {
 
     const favoriteButtons = <ButtonGroup className="image-component__buttons" aria-label="outlined primary button group">
     <IconButton>
@@ -30,11 +30,11 @@ const ImageComponent = ({ isSearchPage, authorName, image}) => {
             favorite
         </span>
     </IconButton>
-    <IconButton>
+    <a href={downloadLink} download='image-by'><IconButton>
         <span className="image-component__buttons__download material-symbols-outlined">
             download
         </span>
-    </IconButton>
+    </IconButton></a>
     </ButtonGroup>
     return (
         <article className="image-component">
