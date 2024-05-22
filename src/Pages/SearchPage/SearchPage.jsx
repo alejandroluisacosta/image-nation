@@ -3,8 +3,10 @@ import Footer from "../../Components/Footer/Footer";
 import ImageComponent from "../../Components/ImageComponent/ImageComponent";
 import Navbar from "../../Components/Navbar/Navbar";
 import './SearchPage.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Input from '@mui/joy/Input';
+import { useDispatch, useSelector } from "react-redux";
+import GetInitialImagesThunk from "../../Features/Search/SearchThunk";
 
 const testImages =
     [
@@ -889,20 +891,37 @@ const testImages =
 ]
 
 const SearchPage = () => {
-    return (
-        <>
+
+    const [images, setImages] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const Images = useSelector(state => state.Search.data);
+    const ImagesStatus = useSelector(state => state.Search.status);
+    const ImagesError = useSelector(state => state.Search.error);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (ImagesStatus === 'idle')
+            dispatch(GetInitialImagesThunk());
+        else if (ImagesStatus === 'pending')
+            setLoading(true);
+        else if (ImagesStatus === 'fulfilled') {
+            setLoading(false);
+            setImages(Images);
+        }
+    }, [])
+
+    return <>
         <header className="header">
         <Navbar />
         <p>High-quality images</p>
         <p>for high-quality projects</p>
         <Input placeholder="Search" />;
         </header>
-        {testImages.map((image, index) => (
+        {images.map((image, index) => (
             <ImageComponent isSearchPage={true} authorName={image.user.name} image={image.urls.small} downloadLink={image.urls.full} key={index}/>
         ))}
         <Footer/>
         </>
-    )
 }
 
 export default SearchPage;
