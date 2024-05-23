@@ -6,7 +6,6 @@ import ImageComponent from '../../Components/ImageComponent/ImageComponent';
 import Footer from '../../Components/Footer/Footer';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import { render } from 'server/reply';
 
 const FavoritesPage = () => {
     
@@ -44,7 +43,7 @@ const FavoritesPage = () => {
         <>
         {Favorites.length ? renderedImages.map((favoriteImage, index) => (
             <>
-            <ImageComponent isSearchPage={false} id={favoriteImage.id} authorName={favoriteImage.authorName} image={favoriteImage.image} downloadLink={favoriteImage.downloadLink} key={index}/>
+            <ImageComponent isSearchPage={false} id={favoriteImage.id} authorName={favoriteImage.authorName} image={favoriteImage.image} description={favoriteImage.description} width={favoriteImage.width} height={favoriteImage.height} likes={favoriteImage.likes} date={favoriteImage.created_at} downloadLink={favoriteImage.downloadLink} key={index}/>
             </>
         ))
         :

@@ -12,7 +12,7 @@ const ImageComponent = ({ isSearchPage, id, authorName, image, downloadLink, wid
             isSearchPage ? 
             <SearchButtonsComponent isSearchPage={false} id={id} authorName={authorName} image={image} description={description} width={width} height={height} likes={likes} date={date} downloadLink={downloadLink} /> 
             :
-            <FavoriteButtonsComponent id={id} downloadLink={downloadLink}/>
+            <FavoriteButtonsComponent id={id} downloadLink={downloadLink} width={width} height={height} likes={likes} date={date} description={description}/>
             }
         </article>
     )
