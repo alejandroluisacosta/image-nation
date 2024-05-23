@@ -7,3 +7,10 @@
     font-size: 0.75rem;
     border-radius: 2px;
 }
+
+.navbar__button--favorites {
+    font-size: 0.75rem;
+    border-radius: 2px;
+    background-color: black;
+    color: #D6D1D1;
+}
