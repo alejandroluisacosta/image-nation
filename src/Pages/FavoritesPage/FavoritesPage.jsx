@@ -4,8 +4,12 @@ import { Input } from "@mui/joy"
 import Navbar from "../../Components/Navbar/Navbar"
 import ImageComponent from '../../Components/ImageComponent/ImageComponent';
 import Footer from '../../Components/Footer/Footer';
+import { useSelector } from 'react-redux';
 
 const FavoritesPage = () => {
+    
+    const Favorites = useSelector(state => state.Favorites.data);
+    console.log(Favorites);
     return (
         <>
         <Navbar className={"navbar navbar--favorites"}/>
@@ -18,7 +22,9 @@ const FavoritesPage = () => {
             <Option value="height">Height</Option>
             <Option value="likes">Likes</Option>
         </Select>
-        <ImageComponent isSearchPage={false} authorName={"Nick Jonas"} image={null} downloadLink={null} />
+        {Favorites.map((favoriteImage, index) => (
+            <ImageComponent isSearchPage={false} id={favoriteImage.id} authorName={favoriteImage.authorName} image={favoriteImage.image} downloadLink={favoriteImage.downloadLink} key={index}/>
+        ))}
         <Footer />
         </>
     )
