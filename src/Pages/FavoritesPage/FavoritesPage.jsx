@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 const FavoritesPage = () => {
     
     const Favorites = useSelector(state => state.Favorites.data);
-    console.log(Favorites);
     return (
         <>
         <Navbar className={"navbar navbar--favorites"}/>
