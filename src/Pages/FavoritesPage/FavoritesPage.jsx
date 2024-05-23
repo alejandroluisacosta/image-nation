@@ -18,13 +18,26 @@ const FavoritesPage = () => {
         setRenderedImages(ImagesFilteredByName);
     }
 
+    // const filterByPropertyHandler = (event) => {
+    //     setRenderedImages(images => images.sort((a, b) => a[event.target.value] - b[event.target.value]));
+    // } NO FUNCIONA Y CREO QUE ES PORQUE MUTA DIRECTAMENTE EL ARRAY
+
+    const filterByPropertyHandler = (event) => {
+        setRenderedImages(images => {
+          const sortedImages = [...images]; 
+          sortedImages.sort((a, b) => a[event.target.value] - b[event.target.value]);
+          console.log(sortedImages);
+          return sortedImages;
+        });
+      };
+
     return (
         <>
         <Navbar className={"navbar navbar--favorites"}/>
         <h2>Favorites</h2>
         <Input onChange={filterByNameHandler}/>
         <p>Sort by</p>
-        <Select defaultValue="date">
+        <Select onChange={filterByPropertyHandler} defaultValue="date">
             <Option value="date">Date</Option>
             <Option value="width">Width</Option>
             <Option value="height">Height</Option>

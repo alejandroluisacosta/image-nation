@@ -8,7 +8,6 @@ import Input from '@mui/joy/Input';
 import { useDispatch, useSelector } from "react-redux";
 import GetInitialImagesThunk, { GetSearchedImagesThunk } from "../../Features/Search/SearchThunk";
 import { CircularProgress } from "@mui/joy";
-import { addFavorite } from "../../Features/Favorites/FavoritesSlice";
 
 const SearchPage = () => {
 
