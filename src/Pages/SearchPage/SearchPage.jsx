@@ -60,7 +60,7 @@ const SearchPage = () => {
         <>
         <div className="image-list">
             {images.map((image, index) => (
-                <ImageComponent isSearchPage={true} authorName={image.user.name} image={image.urls.small} downloadLink={image.urls.full} key={index}/>
+                <ImageComponent isSearchPage={true} id={image.id} authorName={image.user.name} image={image.urls.small} downloadLink={image.urls.full} key={index}/>
             ))}
         </div>
         <Footer className="footer"/>

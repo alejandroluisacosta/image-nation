@@ -4,7 +4,7 @@ import Button from '@mui/joy/Button';
 import ButtonGroup from '@mui/joy/ButtonGroup';
 import IconButton from '@mui/joy/IconButton';
 
-const ImageComponent = ({ isSearchPage, authorName, image, downloadLink }) => {
+const ImageComponent = ({ isSearchPage, id, authorName, image, downloadLink }) => {
 
     const favoriteButtons = <ButtonGroup className="image-component__buttons" aria-label="outlined primary button group">
     <IconButton>
