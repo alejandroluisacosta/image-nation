@@ -10,7 +10,6 @@ const GetInitialImagesThunk = createAsyncThunk("Search/GetInitialImages", async 
         );
         if (request.ok) {
             const Images = await request.json();
-            console.log(Images);
             return Images;
         }
         return false;

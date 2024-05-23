@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { removeFavorite } from "../../Features/Favorites/FavoritesSlice";
 import { ButtonGroup, IconButton } from "@mui/joy";
+import { saveAs } from 'file-saver';
 
 
-const FavoriteButtonsComponent = ({ id }) => {
+const FavoriteButtonsComponent = ({ id, downloadLink }) => {
 
     const Favorites = useSelector(state => state.Favorites.data);
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const FavoriteButtonsComponent = ({ id }) => {
                 favorite
             </span>
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => saveAs(downloadLink)}>
             <span className="image-component__buttons__download material-symbols-outlined">
                 download
             </span>

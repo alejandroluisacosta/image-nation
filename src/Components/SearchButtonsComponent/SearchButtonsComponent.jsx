@@ -3,6 +3,7 @@ import ButtonGroup from '@mui/joy/ButtonGroup';
 import IconButton from '@mui/joy/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite } from '../../Features/Favorites/FavoritesSlice';
+import { saveAs } from 'file-saver';
 
 const SearchButtonsComponent = ({ isSearchPage, id, authorName, image, description, downloadLink }) => {
 
@@ -12,7 +13,6 @@ const SearchButtonsComponent = ({ isSearchPage, id, authorName, image, descripti
     const addFavoriteHandler = (event) => {
         event.preventDefault();
         dispatch(addFavorite({isSearchPage: false, id: id, authorName: authorName, image: image, description: description, downloadLink: downloadLink }));
-        console.log(Favorites)
     }
 
     return (
@@ -22,11 +22,11 @@ const SearchButtonsComponent = ({ isSearchPage, id, authorName, image, descripti
                 favorite
             </span>
         </IconButton>
-        <a><IconButton>
+        <IconButton onClick={() => saveAs(downloadLink)}>
             <span className="image-component__buttons__download material-symbols-outlined">
                 download
             </span>
-        </IconButton></a>
+        </IconButton>
         </ButtonGroup>
     )
 }
