@@ -22,9 +22,14 @@ const FavoritesPage = () => {
             <Option value="height">Height</Option>
             <Option value="likes">Likes</Option>
         </Select>
-        {Favorites.map((favoriteImage, index) => (
+        <>
+        {Favorites.length ? Favorites.map((favoriteImage, index) => (
             <ImageComponent isSearchPage={false} id={favoriteImage.id} authorName={favoriteImage.authorName} image={favoriteImage.image} downloadLink={favoriteImage.downloadLink} key={index}/>
-        ))}
+        ))
+        :
+        <p>No favorite images</p>
+        }
+        </>
         <Footer />
         </>
     )
