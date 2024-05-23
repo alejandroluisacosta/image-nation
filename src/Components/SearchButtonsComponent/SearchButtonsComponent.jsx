@@ -4,14 +4,15 @@ import IconButton from '@mui/joy/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite } from '../../Features/Favorites/FavoritesSlice';
 
-const SearchButtonsComponent = ({ isSearchPage, id, authorName, image, downloadLink }) => {
+const SearchButtonsComponent = ({ isSearchPage, id, authorName, image, description, downloadLink }) => {
 
     const Favorites = useSelector(state => state.Favorites.data);
     const dispatch = useDispatch();
 
     const addFavoriteHandler = (event) => {
         event.preventDefault();
-        dispatch(addFavorite({isSearchPage: false, id: id, authorName: authorName, image: image, downloadLink: downloadLink }));
+        dispatch(addFavorite({isSearchPage: false, id: id, authorName: authorName, image: image, description: description, downloadLink: downloadLink }));
+        console.log(Favorites)
     }
 
     return (

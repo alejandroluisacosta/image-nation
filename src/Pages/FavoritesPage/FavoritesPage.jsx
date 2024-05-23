@@ -5,15 +5,24 @@ import Navbar from "../../Components/Navbar/Navbar"
 import ImageComponent from '../../Components/ImageComponent/ImageComponent';
 import Footer from '../../Components/Footer/Footer';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 const FavoritesPage = () => {
     
     const Favorites = useSelector(state => state.Favorites.data);
+    const [renderedImages, setRenderedImages] = useState(Favorites);
+    let ImagesFilteredByName = [];
+
+    const filterByNameHandler = (event) => {
+        ImagesFilteredByName = Favorites.filter(image => image.description.includes(event.target.value));
+        setRenderedImages(ImagesFilteredByName);
+    }
+
     return (
         <>
         <Navbar className={"navbar navbar--favorites"}/>
         <h2>Favorites</h2>
-        <Input />
+        <Input onChange={filterByNameHandler}/>
         <p>Sort by</p>
         <Select defaultValue="date">
             <Option value="date">Date</Option>
@@ -22,8 +31,10 @@ const FavoritesPage = () => {
             <Option value="likes">Likes</Option>
         </Select>
         <>
-        {Favorites.length ? Favorites.map((favoriteImage, index) => (
+        {Favorites.length ? renderedImages.map((favoriteImage, index) => (
+            <>
             <ImageComponent isSearchPage={false} id={favoriteImage.id} authorName={favoriteImage.authorName} image={favoriteImage.image} downloadLink={favoriteImage.downloadLink} key={index}/>
+            </>
         ))
         :
         <p>No favorite images</p>
