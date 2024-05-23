@@ -5,14 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite } from '../../Features/Favorites/FavoritesSlice';
 import { saveAs } from 'file-saver';
 
-const SearchButtonsComponent = ({ isSearchPage, id, authorName, image, description, downloadLink }) => {
+const SearchButtonsComponent = ({ isSearchPage, id, authorName, image, description, width, height, likes, date, downloadLink }) => {
 
     const Favorites = useSelector(state => state.Favorites.data);
     const dispatch = useDispatch();
 
     const addFavoriteHandler = (event) => {
         event.preventDefault();
-        dispatch(addFavorite({isSearchPage: false, id: id, authorName: authorName, image: image, description: description, downloadLink: downloadLink }));
+        dispatch(addFavorite({isSearchPage: false, id: id, authorName: authorName, image: image, description: description, width: width, height: height, likes: likes, date: date, downloadLink: downloadLink }));
     }
 
     return (

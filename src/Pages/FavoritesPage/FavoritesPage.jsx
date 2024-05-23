@@ -6,6 +6,7 @@ import ImageComponent from '../../Components/ImageComponent/ImageComponent';
 import Footer from '../../Components/Footer/Footer';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { render } from 'server/reply';
 
 const FavoritesPage = () => {
     
@@ -19,18 +20,15 @@ const FavoritesPage = () => {
     }
 
     // const filterByPropertyHandler = (event) => {
-    //     setRenderedImages(images => images.sort((a, b) => a[event.target.value] - b[event.target.value]));
-    // } NO FUNCIONA Y CREO QUE ES PORQUE MUTA DIRECTAMENTE EL ARRAY
+    //     console.log(renderedImages);
+    //     setRenderedImages(renderedImages.sort((a, b) => a.width - b.width));
+    // } 
 
-    const filterByPropertyHandler = (event) => {
-        setRenderedImages(images => {
-          const sortedImages = [...images]; 
-          sortedImages.sort((a, b) => a[event.target.value] - b[event.target.value]);
-          console.log(sortedImages);
-          return sortedImages;
-        });
+    const filterByPropertyHandler = (event, value) => {
+        const sortedImages = [...renderedImages]; 
+        setRenderedImages(sortedImages.sort((a, b) => a[value] - b[value]))
       };
-
+      
     return (
         <>
         <Navbar className={"navbar navbar--favorites"}/>

@@ -61,7 +61,7 @@ const SearchPage = () => {
         <div className="image-list">
             {images.map((image, index) => (
                 <>
-                <ImageComponent isSearchPage={true} id={image.id} authorName={image.user.name} image={image.urls.small} description={image.alt_description} downloadLink={image.urls.full} key={index}/>
+                <ImageComponent isSearchPage={true} id={image.id} authorName={image.user.name} image={image.urls.small} description={image.alt_description} width={image.width} height={image.height} likes={image.likes} date={image.created_at} downloadLink={image.urls.full} key={index}/>
                 </>
             ))}
         </div>

@@ -12,7 +12,6 @@ const FavoriteButtonsComponent = ({ id, downloadLink }) => {
     const removeFavoriteHandler = (event) => {
         event.preventDefault();
         dispatch(removeFavorite({id: id}));
-        console.log(id);
     }
 
     return (
