@@ -23,7 +23,6 @@ const FavoritesSlice = createSlice({
                 return image;
             })
             localStorage.setItem('favorites', JSON.stringify(state.data));
-            console.log(JSON.parse(localStorage.getItem('favorites')));
             return state;
         }
     }

@@ -13,9 +13,8 @@ const FavoriteButtonsComponent = ({ id, description, width, height, likes, date,
     const dispatch = useDispatch();
     const [modalClassName, setModalClassName] = useState("pop-up-modal")
 
-    const popUpModalHandler = (event) => {
+    const popUpModalHandler = () => {
         setModalClassName('pop-up-modal pop-up-modal--open');
-        console.log('hi');
     }
 
     const removeFavoriteHandler = (event) => {
@@ -40,7 +39,7 @@ const FavoriteButtonsComponent = ({ id, description, width, height, likes, date,
                 edit
             </span>
         </IconButton>
-        <ModalComponent className={modalClassName} id={id} description={description} width={width} height={height} likes={likes} date={date}/>
+        <ModalComponent className={modalClassName} id={id} description={description} width={width} height={height} likes={likes} date={date} />
         </ButtonGroup>
     )
 }
