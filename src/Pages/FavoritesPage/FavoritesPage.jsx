@@ -19,11 +19,6 @@ const FavoritesPage = () => {
         setRenderedImages(ImagesFilteredByName);
     }
 
-    // const filterByPropertyHandler = (event) => {
-    //     console.log(renderedImages);
-    //     setRenderedImages(renderedImages.sort((a, b) => a.width - b.width));
-    // } 
-
     const filterByPropertyHandler = (event, value) => {
         const sortedImages = [...renderedImages]; 
         setRenderedImages(sortedImages.sort((a, b) => a[value] - b[value]))
