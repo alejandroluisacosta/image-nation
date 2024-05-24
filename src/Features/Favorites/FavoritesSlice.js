@@ -20,7 +20,7 @@ const FavoritesSlice = createSlice({
             state.data.map((image, index) => {
                 if (image.id === action.payload.id)
                     image.description = action.payload.description;
-                return image;
+                return image; // SOLO PRODUCE RE-RENDER CUADNO SE ELIMINAN TODOS LOS FAVORITOS
             })
             localStorage.setItem('favorites', JSON.stringify(state.data));
             return state;

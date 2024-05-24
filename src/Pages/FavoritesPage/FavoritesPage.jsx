@@ -6,6 +6,7 @@ import ImageComponent from '../../Components/ImageComponent/ImageComponent';
 import Footer from '../../Components/Footer/Footer';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import './FavoritesPage.css';
 
 const FavoritesPage = () => {
     
@@ -30,17 +31,19 @@ const FavoritesPage = () => {
       
     return (
         <>
+        <div className='favorites__header'>
         <Navbar className={"navbar navbar--favorites"}/>
-        <h2>Favorites</h2>
-        <Input onChange={filterByNameHandler}/>
+        <h2 className="favorites__header__title">Favorites</h2>
+        <Input className="favorites__header__input" onChange={filterByNameHandler}/>
         <p>Sort by</p>
-        <Select onChange={filterByPropertyHandler} defaultValue="date">
+        <Select className="favorites__header__select" onChange={filterByPropertyHandler} defaultValue="date">
             <Option value="date">Date</Option>
             <Option value="width">Width</Option>
             <Option value="height">Height</Option>
             <Option value="likes">Likes</Option>
         </Select>
-        <>
+        </div>
+        <div className='image-list image-list--favorites'>
         {Favorites.length ? renderedImages.map((favoriteImage, index) => (
             <>
             <ImageComponent isSearchPage={false} id={favoriteImage.id} authorName={favoriteImage.authorName} image={favoriteImage.image} description={favoriteImage.description} width={favoriteImage.width} height={favoriteImage.height} likes={favoriteImage.likes} date={favoriteImage.created_at} downloadLink={favoriteImage.downloadLink} key={index}/>
@@ -49,8 +52,8 @@ const FavoritesPage = () => {
         :
         <p>No favorite images</p>
         }
-        </>
-        <Footer />
+        </div>
+        <Footer className="footer"/>
         </>
     )
 }

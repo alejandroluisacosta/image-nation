@@ -1,0 +1,42 @@
+.navbar--favorites {
+}
+
+.favorites__header {
+    padding-top: 1.25rem;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 4.69rem;
+}
+
+.favorites__header__select {
+    width: 35%
+}
+
+@media only screen and (min-width: 1000px) {
+
+    .favorites__header {
+        padding-top: 3rem;
+    }
+    .navbar--favorites {
+        margin-bottom: 5rem;
+    }
+
+    .image-list--favorites {
+        padding: 0 10%;
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+    .image-list {
+        padding: 0 5%;
+    }
+}
+
+@media only screen and (min-width: 1700px) {
+
+    .image-list {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
