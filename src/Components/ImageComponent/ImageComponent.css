@@ -1,5 +1,11 @@
 .image-component {
     margin-bottom: 3.5rem;
+    padding: 0 1.5rem;
+}
+
+.image-component__image-container {
+    display: flex;
+    justify-content: center;
 }
 
 .image-component__image {

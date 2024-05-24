@@ -7,7 +7,9 @@ const ImageComponent = ({ isSearchPage, id, authorName, image, downloadLink, wid
     return (
         <article className="image-component">
             <h3 className="image-component__author">{authorName}</h3>
-            <img className="image-component__image" src={image} alt="owl"/>
+            <div className='image-component__image-container'>
+                <img className="image-component__image" src={image} alt="owl"/>
+            </div>
             {
             isSearchPage ? 
             <SearchButtonsComponent isSearchPage={false} id={id} authorName={authorName} image={image} description={description} width={width} height={height} likes={likes} date={date} downloadLink={downloadLink} /> 

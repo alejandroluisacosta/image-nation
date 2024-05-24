@@ -5,7 +5,7 @@ import Navbar from "../../Components/Navbar/Navbar"
 import ImageComponent from '../../Components/ImageComponent/ImageComponent';
 import Footer from '../../Components/Footer/Footer';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './FavoritesPage.css';
 
 const FavoritesPage = () => {
@@ -17,12 +17,16 @@ const FavoritesPage = () => {
     const filterByNameHandler = (event) => {
         ImagesFilteredByName = Favorites.filter(image => image.description.includes(event.target.value));
         setRenderedImages(ImagesFilteredByName);
-    }
+    };
 
     const filterByPropertyHandler = (event, value) => {
         const sortedImages = [...renderedImages]; 
-        setRenderedImages(sortedImages.sort((a, b) => a[value] - b[value]))
+        setRenderedImages(sortedImages.sort((a, b) => a[value] - b[value]));
       };
+
+      useEffect(() => {
+        setRenderedImages(Favorites);
+      }, [Favorites])
       
     return (
         <>

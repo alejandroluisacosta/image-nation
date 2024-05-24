@@ -23,6 +23,7 @@ const FavoriteButtonsComponent = ({ id, description, width, height, likes, date,
     }
 
     return (
+    <>
     <ButtonGroup sx={{ zIndex: 0}} className="image-component__buttons" aria-label="outlined primary button group">
         <IconButton onClick={removeFavoriteHandler}>
             <span className="image-component__buttons__favorite material-symbols-outlined">
@@ -39,8 +40,9 @@ const FavoriteButtonsComponent = ({ id, description, width, height, likes, date,
                 edit
             </span>
         </IconButton>
-        <ModalComponent className={modalClassName} id={id} description={description} width={width} height={height} likes={likes} date={date} />
         </ButtonGroup>
+        <ModalComponent className={modalClassName} setModalClassName={setModalClassName} id={id} description={description} width={width} height={height} likes={likes} date={date} />
+        </>
     )
 }
 

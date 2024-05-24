@@ -3,10 +3,9 @@ import './ModalComponent.css'
 import { useDispatch } from 'react-redux';
 import { modifyDescription } from '../../Features/Favorites/FavoritesSlice';
 
-const ModalComponent = ({ className, id, description, width, height, likes, date}) => {
+const ModalComponent = ({ className, setModalClassName, id, description, width, height, likes, date}) => {
     
     const dispatch = useDispatch();
-    const [modalClassName, setModalClassName] = useState(className);
     // CUANDO PONGO ESTE ESTADO COMO CLASE AL MODAL, NO SE RE-RENDERIZA, POR LO TANTO NUNCA SE ABRE
     const [modifyDescriptionClassName, setModifyDescriptionClassName] = useState('pop-up-modal__modify-description');
     const [imageDescription,  setImageDescription] = useState(description);
@@ -27,7 +26,7 @@ const ModalComponent = ({ className, id, description, width, height, likes, date
         setImageDescription(newDescription);
     }
     
-
+    console.log(className);
     return (
         <>
         <div className={className} id="pop-up-modal">

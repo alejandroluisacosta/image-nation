@@ -15,12 +15,13 @@ const FavoritesSlice = createSlice({
         removeFavorite: (state, action) => {
             state.data = state.data.filter(image => image.id !== action.payload.id);
             localStorage.setItem('favorites', JSON.stringify(state.data));
+            // SOLO PRODUCE RE-RENDER CUADNO SE ELIMINAN TODOS LOS FAVORITOS
         },
         modifyDescription: (state, action) => {
             state.data.map((image, index) => {
                 if (image.id === action.payload.id)
                     image.description = action.payload.description;
-                return image; // SOLO PRODUCE RE-RENDER CUADNO SE ELIMINAN TODOS LOS FAVORITOS
+                return image; 
             })
             localStorage.setItem('favorites', JSON.stringify(state.data));
             return state;
