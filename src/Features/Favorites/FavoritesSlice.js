@@ -20,8 +20,11 @@ const FavoritesSlice = createSlice({
             state.data.map((image, index) => {
                 if (image.id === action.payload.id)
                     image.description = action.payload.description;
+                return image;
             })
             localStorage.setItem('favorites', JSON.stringify(state.data));
+            console.log(JSON.parse(localStorage.getItem('favorites')));
+            return state;
         }
     }
 })

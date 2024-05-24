@@ -46,6 +46,14 @@
     box-shadow: 0.31rem 0.625rem 0.875rem 0rem var(--oxy-blue-shadow);
     cursor: pointer;
   }
+
+  .pop-up-modal__modify-description {
+    display: none;
+  }
+
+  .pop-up-modal__modify-description--open {
+    display: block;
+  }
   
   @media only screen and (min-width: 1000px) {
     .pop-up-modal {
