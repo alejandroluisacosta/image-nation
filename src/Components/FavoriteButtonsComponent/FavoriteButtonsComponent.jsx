@@ -4,15 +4,18 @@ import { ButtonGroup, IconButton } from "@mui/joy";
 import { saveAs } from 'file-saver';
 import './FavoriteButtonsComponent.css'
 import ModalComponent from "../ModalComponent/ModalComponent";
+import { useState } from "react";
 
 
 const FavoriteButtonsComponent = ({ id, description, width, height, likes, date, downloadLink }) => {
 
     const Favorites = useSelector(state => state.Favorites.data);
     const dispatch = useDispatch();
+    const [modalClassName, setModalClassName] = useState("pop-up-modal")
 
     const popUpModalHandler = (event) => {
-        
+        setModalClassName('pop-up-modal pop-up-modal--open');
+        console.log('hi');
     }
 
     const removeFavoriteHandler = (event) => {
@@ -32,12 +35,12 @@ const FavoriteButtonsComponent = ({ id, description, width, height, likes, date,
                 download
             </span>
         </IconButton>
-        <IconButton >
+        <IconButton onClick={popUpModalHandler}>
             <span className="image-component__buttons__edit material-symbols-outlined">
                 edit
             </span>
         </IconButton>
-        <ModalComponent open={false} id={id} description={description} width={width} height={height} likes={likes} date={date}/>
+        <ModalComponent className={modalClassName} id={id} description={description} width={width} height={height} likes={likes} date={date}/>
         </ButtonGroup>
     )
 }
