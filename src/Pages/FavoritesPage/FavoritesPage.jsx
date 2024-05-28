@@ -7,12 +7,20 @@ import { useEffect, useState } from 'react';
 import './FavoritesPage.css';
 import FooterComponent from '../../Components/FooterComponent/FooterComponent';
 import NavbarComponent from '../../Components/NavbarComponent/NavbarComponent';
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const FavoritesPage = () => {
+
     
     const Favorites = useSelector(state => state.Favorites.data);
     const [renderedImages, setRenderedImages] = useState(Favorites);
     let ImagesFilteredByName = [];
+    
+    const notify = () => toast("Wow so easy !");
+    const [imageRemoved, setImageRemoved] = useState(false);
 
     const filterByNameHandler = (event) => {
         ImagesFilteredByName = Favorites.filter(image => image.description.includes(event.target.value));
@@ -26,6 +34,8 @@ const FavoritesPage = () => {
 
       useEffect(() => {
         setRenderedImages(Favorites);
+        setImageRemoved(true);
+        notify();
       }, [Favorites])
       
     return (
@@ -52,9 +62,11 @@ const FavoritesPage = () => {
         <p>No favorite images</p>
         }
         </div>
+        {imageRemoved ? <ToastContainer /> : <></>}
         <FooterComponent className="footer"/>
         </>
     )
 }
+
 
 export default FavoritesPage
