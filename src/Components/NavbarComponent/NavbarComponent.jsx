@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import './Navbar.css';
+import './NavbarComponent.css';
 import logoWhite from '/Users/alejandroacosta/Desktop/image-nation/src/assets/ImageNationLogoWhite.png';
 import logoBlack from '/Users/alejandroacosta/Desktop/image-nation/src/assets/ImageNationLogoBlack.png'
 
-const Navbar = ({ className }) => {
+const NavbarComponent = ({ className }) => {
     return (
         <nav className={className}>
             { className === 'header__navbar navbar' ?
@@ -21,4 +21,4 @@ const Navbar = ({ className }) => {
     )
 }
 
-export default Navbar;
+export default NavbarComponent;

@@ -1,12 +1,12 @@
 import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import { Input } from "@mui/joy"
-import Navbar from "../../Components/Navbar/Navbar"
 import ImageComponent from '../../Components/ImageComponent/ImageComponent';
-import Footer from '../../Components/Footer/Footer';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import './FavoritesPage.css';
+import FooterComponent from '../../Components/FooterComponent/FooterComponent';
+import NavbarComponent from '../../Components/NavbarComponent/NavbarComponent';
 
 const FavoritesPage = () => {
     
@@ -31,7 +31,7 @@ const FavoritesPage = () => {
     return (
         <>
         <div className='favorites__header'>
-        <Navbar className={"navbar navbar--favorites"}/>
+        <NavbarComponent className={"navbar navbar--favorites"}/>
         <h2 className="favorites__header__title">Favorites</h2>
         <Input className="favorites__header__input" onChange={filterByNameHandler}/>
         <p>Sort by</p>
@@ -52,7 +52,7 @@ const FavoritesPage = () => {
         <p>No favorite images</p>
         }
         </div>
-        <Footer className="footer"/>
+        <FooterComponent className="footer"/>
         </>
     )
 }

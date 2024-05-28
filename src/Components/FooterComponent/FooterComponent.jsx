@@ -1,6 +1,6 @@
-import './Footer.css';
+import './FooterComponent.css';
 
-const Footer = () => {
+const FooterComponent = () => {
     return (
         <footer className="footer">
             <p>by alejandro luis acosta | powered by Unsplash ®</p>
@@ -8,4 +8,4 @@ const Footer = () => {
     )   
 }
 
-export default Footer;
+export default FooterComponent;

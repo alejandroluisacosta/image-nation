@@ -26,7 +26,6 @@ const ModalComponent = ({ className, setModalClassName, id, description, width, 
         setImageDescription(newDescription);
     }
     
-    console.log(className);
     return (
         <>
         <div className={className} id="pop-up-modal">
