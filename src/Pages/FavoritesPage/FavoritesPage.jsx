@@ -19,7 +19,11 @@ const FavoritesPage = () => {
     const [renderedImages, setRenderedImages] = useState(Favorites);
     let ImagesFilteredByName = [];
     
-    const notify = () => toast("Wow so easy !");
+    const notify = () => {
+        toast.success("Image removed successfully", {
+            position: 'top-center'
+        })
+    }
     const [imageRemoved, setImageRemoved] = useState(false);
 
     const filterByNameHandler = (event) => {
@@ -62,7 +66,7 @@ const FavoritesPage = () => {
         <p>No favorite images</p>
         }
         </div>
-        {imageRemoved ? <ToastContainer /> : <></>}
+        {imageRemoved ? <ToastContainer autoClose={1500}/> : <></>}
         <FooterComponent className="footer"/>
         </>
     )
