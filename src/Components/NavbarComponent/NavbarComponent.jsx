@@ -14,7 +14,7 @@ const NavbarComponent = ({ className }) => {
             :
             <>
             <img src={logoBlack} alt="Companie's Logo"/>
-            <Link to="/"><button className="navbar__button--favorites">Home</button></Link>
+            <Link to="/"><button className="navbar__button navbar__button--favorites">Home</button></Link>
             </>
             }
         </nav>
