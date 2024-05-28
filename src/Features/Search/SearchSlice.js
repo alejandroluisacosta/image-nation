@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import GetInitialImagesThunk, { GetSearchedImagesThunk } from "./SearchThunk";
+import { GetInitialImagesThunk, GetSearchedImagesThunk } from "./SearchThunk";
 
 const SearchSlice = createSlice({
     name: 'Search',

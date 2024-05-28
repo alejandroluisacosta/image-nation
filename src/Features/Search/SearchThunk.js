@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const GetInitialImagesThunk = createAsyncThunk("Search/GetInitialImages", async () => {
+export const GetInitialImagesThunk = createAsyncThunk("Search/GetInitialImages", async () => {
     try {
         const request = await fetch('https://api.unsplash.com/photos?per_page=20',
             {
@@ -38,5 +38,3 @@ export const GetSearchedImagesThunk = createAsyncThunk('Search/GetSearchedImages
         console.log(error);
     }
 })
-
-export default GetInitialImagesThunk;

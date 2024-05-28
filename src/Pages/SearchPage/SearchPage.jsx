@@ -4,7 +4,7 @@ import './SearchPage.css';
 import React, { useEffect, useState } from 'react';
 import Input from '@mui/joy/Input';
 import { useDispatch, useSelector } from "react-redux";
-import GetInitialImagesThunk, { GetSearchedImagesThunk } from "../../Features/Search/SearchThunk";
+import { GetInitialImagesThunk, GetSearchedImagesThunk } from "../../Features/Search/SearchThunk";
 import { CircularProgress } from "@mui/joy";
 import FooterComponent from "../../Components/FooterComponent/FooterComponent";
 import NavbarComponent from "../../Components/NavbarComponent/NavbarComponent";
