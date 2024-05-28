@@ -74,7 +74,9 @@ const SearchPage = () => {
             </div>
         </header>
         {loading ?
-        <CircularProgress />
+        <div className="circular-progress-container">
+            <CircularProgress className="circular-progress-container__icon"/>
+        </div>
         :
         <>
         <div className="image-list">

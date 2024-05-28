@@ -57,16 +57,18 @@ const FavoritesPage = () => {
             <Option value="likes">Likes</Option>
         </Select>
         </div>
-        <div className='image-list image-list--favorites'>
-        {Favorites.length ? renderedImages.map((favoriteImage, index) => (
-            <>
-            <ImageComponent isSearchPage={false} id={favoriteImage.id} authorName={favoriteImage.authorName} image={favoriteImage.image} description={favoriteImage.description} width={favoriteImage.width} height={favoriteImage.height} likes={favoriteImage.likes} date={favoriteImage.created_at} downloadLink={favoriteImage.downloadLink} key={index}/>
-            </>
-        ))
+        {Favorites.length ?
+            <div className='image-list image-list--favorites'>
+                {renderedImages.map((favoriteImage, index) => (
+                    <ImageComponent isSearchPage={false} id={favoriteImage.id} authorName={favoriteImage.authorName} image={favoriteImage.image} description={favoriteImage.description} width={favoriteImage.width} height={favoriteImage.height} likes={favoriteImage.likes} date={favoriteImage.created_at} downloadLink={favoriteImage.downloadLink} key={index}/>
+                ))}
+            </div>
         :
-        <p>No favorite images</p>
-        }
+        <div className='no-images-message-container'>
+            <p className='no-images-message-container__text'>No favorite images</p>
         </div>
+        }
+        
         {imageRemoved ? <ToastContainer autoClose={1500}/> : <></>}
         <FooterComponent className="footer"/>
         </>

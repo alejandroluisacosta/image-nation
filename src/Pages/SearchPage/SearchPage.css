@@ -17,6 +17,11 @@
     margin-top: 0;
 }
 
+.circular-progress-container {
+    display: flex;
+    align-items: center;
+}
+
 .image-list {
     display: flex;
     flex-direction: column;
