@@ -20,11 +20,13 @@ const FavoritesPage = () => {
     
     const notify = () => {
         toast.success("Image removed successfully", {
-            position: 'top-center'
+            position: 'top-center',
+            hideProgressBar: true,
         })
     }
+    
     const [imageRemoved, setImageRemoved] = useState(false);
-
+    
     const filterByNameHandler = (event) => {
         ImagesFilteredByName = Favorites.filter(image => image.description.includes(event.target.value));
         setRenderedImages(ImagesFilteredByName);

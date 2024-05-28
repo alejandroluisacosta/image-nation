@@ -8,6 +8,8 @@ import { GetInitialImagesThunk, GetSearchedImagesThunk } from "../../Features/Se
 import { CircularProgress } from "@mui/joy";
 import FooterComponent from "../../Components/FooterComponent/FooterComponent";
 import NavbarComponent from "../../Components/NavbarComponent/NavbarComponent";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SearchPage = () => {
 
@@ -17,6 +19,8 @@ const SearchPage = () => {
     const ImagesStatus = useSelector(state => state.Search.status);
     const ImagesError = useSelector(state => state.Search.error);
     const dispatch = useDispatch();
+
+    const [imageAdded, setImageAdded] = useState(false);
 
 
     const searchSubmitHandler = (event) => {
@@ -46,6 +50,20 @@ const SearchPage = () => {
         }
     }, [Images, ImagesStatus, dispatch])
 
+    const notify = () => {
+        toast.success("Image added successfully", {
+            position: 'top-center',
+            hideProgressBar: true
+        })
+    }
+
+    useEffect(() => {
+        if (imageAdded) {
+            notify();
+            setImageAdded(false);
+        }
+    }, [imageAdded]);
+
     return <>
         <header className="header">
             <NavbarComponent className="header__navbar navbar"/>
@@ -62,10 +80,23 @@ const SearchPage = () => {
         <div className="image-list">
             {images.map((image, index) => (
                 <>
-                <ImageComponent isSearchPage={true} id={image.id} authorName={image.user.name} image={image.urls.small} description={image.alt_description} width={image.width} height={image.height} likes={image.likes} date={image.created_at} downloadLink={image.urls.full} key={index}/>
+                <ImageComponent 
+                isSearchPage={true}
+                id={image.id}
+                authorName={image.user.name}
+                image={image.urls.small}
+                description={image.alt_description}
+                width={image.width} height={image.height}
+                likes={image.likes}
+                date={image.created_at}
+                downloadLink={image.urls.full}
+                key={index}
+                setImageAdded={setImageAdded}
+                />
                 </>
             ))}
         </div>
+        <ToastContainer autoClose={500} />
         <FooterComponent className="footer"/>
         </>
         }
