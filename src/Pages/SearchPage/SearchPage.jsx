@@ -18,6 +18,7 @@ const SearchPage = () => {
     const ImagesError = useSelector(state => state.Search.error);
     const dispatch = useDispatch();
 
+
     const searchSubmitHandler = (event) => {
         if (event.key === 'Enter') {
             if(event.target.value !== ""){

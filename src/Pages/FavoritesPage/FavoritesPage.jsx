@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import './FavoritesPage.css';
 import FooterComponent from '../../Components/FooterComponent/FooterComponent';
 import NavbarComponent from '../../Components/NavbarComponent/NavbarComponent';
-import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
