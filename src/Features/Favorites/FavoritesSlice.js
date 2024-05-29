@@ -9,13 +9,14 @@ const FavoritesSlice = createSlice({
     },
     reducers: {
         addFavorite: (state, action) => {
-            state.data.push(action.payload);
-            localStorage.setItem('favorites', JSON.stringify(state.data));
+            if (!state.data.some(image => image.id === action.payload.id)) {
+                state.data.push(action.payload);
+                localStorage.setItem('favorites', JSON.stringify(state.data));
+            }
         },
         removeFavorite: (state, action) => {
             state.data = state.data.filter(image => image.id !== action.payload.id);
             localStorage.setItem('favorites', JSON.stringify(state.data));
-            // SOLO PRODUCE RE-RENDER CUADNO SE ELIMINAN TODOS LOS FAVORITOS
         },
         modifyDescription: (state, action) => {
             state.data.map((image, index) => {
