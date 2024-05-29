@@ -23,6 +23,7 @@ const ModalComponent = ({ className, setModalClassName, id, description, width, 
         const newDescription = event.target.elements[0].value;
         dispatch(modifyDescription({id: id, description: newDescription}));
         setImageDescription(newDescription);
+        setModifyDescriptionClassName('pop-up-modal__modify-description');
     }
 
     return (
@@ -37,15 +38,17 @@ const ModalComponent = ({ className, setModalClassName, id, description, width, 
             <div className="pop-up-modal__button-container">
                 <button onClick={openModifyDescriptionTextField} className="pop-up-modal__button-container__button" type="submit">Edit</button>
             </div>
+            <form onSubmit={modifyDescriptionHandler} className={modifyDescriptionClassName}>
+                <p className='pop-up-modal__modify-description__title'>New description:</p>
+                <input  className='pop-up-modal__modify-description__input'type="text"/>
+                <div className='pop-up-modal__modify-description__button-container'>
+                    <button className='pop-up-modal__modify-description__button-container__button'>Submit</button>
+                </div>
+            </form>
             <p className="pop-up-modal__property"><strong>Width:</strong> {width}</p>
             <p className="pop-up-modal__property"><strong>Height:</strong> {height}</p>
             <p className="pop-up-modal__property"><strong>Likes:</strong> {likes}</p>
             <p className="pop-up-modal__property"><strong>Addition date:</strong> {date}</p>
-            <form onSubmit={modifyDescriptionHandler} className={modifyDescriptionClassName}>
-                <p>New description:</p>
-                <input type="text"/>
-                <button>Submit</button>
-            </form>
         </div>
     </>
     )
