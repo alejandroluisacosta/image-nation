@@ -26,6 +26,11 @@
     .favorites__header {
         padding-top: 3rem;
     }
+    
+    .favorites__header__select {
+        width: 10%
+    }
+
     .navbar--favorites {
         margin-bottom: 5rem;
     }

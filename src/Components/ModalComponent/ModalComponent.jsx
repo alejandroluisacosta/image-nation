@@ -32,15 +32,15 @@ const ModalComponent = ({ className, setModalClassName, id, description, width, 
             <span onClick={closeModalHandler} className="pop-up-modal__close material-symbols-outlined" id="pop-up-modal__close">
                 close
             </span>
-            <p className="pop-up-modal__description-title">Description:</p>
+            <p className="pop-up-modal__description-title"><strong>Description:</strong></p>
             <p className="pop-up-modal__description">"{imageDescription}"</p>
             <div className="pop-up-modal__button-container">
-                <button onClick={openModifyDescriptionTextField} className="pop-up-modal__button-container__button" type="submit">Modify description</button>
+                <button onClick={openModifyDescriptionTextField} className="pop-up-modal__button-container__button" type="submit">Edit</button>
             </div>
-            <p className="pop-up-modal__property">Width: {width}</p>
-            <p className="pop-up-modal__property">Height: {height}</p>
-            <p className="pop-up-modal__property">Likes: {likes}</p>
-            <p className="pop-up-modal__property">Addition date: {date}</p>
+            <p className="pop-up-modal__property"><strong>Width:</strong> {width}</p>
+            <p className="pop-up-modal__property"><strong>Height:</strong> {height}</p>
+            <p className="pop-up-modal__property"><strong>Likes:</strong> {likes}</p>
+            <p className="pop-up-modal__property"><strong>Addition date:</strong> {date}</p>
             <form onSubmit={modifyDescriptionHandler} className={modifyDescriptionClassName}>
                 <p>New description:</p>
                 <input type="text"/>
