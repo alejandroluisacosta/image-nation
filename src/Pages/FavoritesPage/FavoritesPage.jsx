@@ -63,31 +63,38 @@ const FavoritesPage = () => {
         </Select>
         </div>
         {Favorites.length ?
-            <div className='image-list image-list--favorites'>
-                {renderedImages.map((favoriteImage, index) => (
-                    <ImageComponent 
-                    isSearchPage={false} 
-                    id={favoriteImage.id} 
-                    authorName={favoriteImage.authorName} 
-                    image={favoriteImage.image} 
-                    description={favoriteImage.description} 
-                    width={favoriteImage.width} 
-                    height={favoriteImage.height} 
-                    likes={favoriteImage.likes} 
-                    date={new Date(favoriteImage.date).toLocaleDateString('en-US')} 
-                    downloadLink={favoriteImage.downloadLink} 
-                    key={index}
-                    />
-                ))}
-            </div>
+            <>
+                <div className='image-list image-list--favorites'>
+                    {renderedImages.map((favoriteImage, index) => (
+                        <ImageComponent 
+                        isSearchPage={false} 
+                        id={favoriteImage.id} 
+                        authorName={favoriteImage.authorName} 
+                        image={favoriteImage.image} 
+                        description={favoriteImage.description} 
+                        width={favoriteImage.width} 
+                        height={favoriteImage.height} 
+                        likes={favoriteImage.likes} 
+                        date={new Date(favoriteImage.date).toLocaleDateString('en-US')} 
+                        downloadLink={favoriteImage.downloadLink} 
+                        key={index}
+                        />
+                    ))}
+                </div>
+            </>
         :
-        <div className='no-images-message-container'>
-            <p className='no-images-message-container__text'>No favorite images</p>
-        </div>
+        <>
+            <div className='no-images-message-container'>
+                <p className='no-images-message-container__text'>No favorite images</p>
+            </div>
+        </>
         }
-        
-        {imageRemoved ? <ToastContainer autoClose={1500}/> : <></>}
+        {Favorites.length >= 4 ?
         <FooterComponent className="footer"/>
+        :
+        <FooterComponent className="footer footer--few-favorites"/>
+        }
+        {imageRemoved ? <ToastContainer autoClose={1500}/> : <></>}
         </>
     )
 }

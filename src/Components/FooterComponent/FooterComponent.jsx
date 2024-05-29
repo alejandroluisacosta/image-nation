@@ -1,8 +1,8 @@
 import './FooterComponent.css';
 
-const FooterComponent = () => {
+const FooterComponent = ({ className }) => {
     return (
-        <footer className="footer">
+        <footer className={className}>
             <p>by alejandro luis acosta | powered by Unsplash ®</p>
         </footer>
     )   

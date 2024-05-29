@@ -3,6 +3,9 @@
     background-color: black;
     font-size: 0.75rem;
     text-align: center;
+}
+
+.footer--few-favorites {
     position: absolute;
     bottom: 0;
 }
