@@ -92,7 +92,7 @@ const SearchPage = () => {
                 likes={image.likes}
                 date={image.created_at}
                 downloadLink={image.urls.full}
-                key={index}
+                key={image.id}
                 setImageAdded={setImageAdded}
                 />
                 </>

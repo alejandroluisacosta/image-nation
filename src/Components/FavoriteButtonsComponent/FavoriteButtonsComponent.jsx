@@ -41,7 +41,16 @@ const FavoriteButtonsComponent = ({ id, description, width, height, likes, date,
             </span>
         </IconButton>
         </ButtonGroup>
-        <ModalComponent className={modalClassName} setModalClassName={setModalClassName} id={id} description={description} width={width} height={height} likes={likes} date={date} />
+        <ModalComponent 
+        className={modalClassName} 
+        setModalClassName={setModalClassName} 
+        id={id} 
+        description={description} 
+        width={width} 
+        height={height} 
+        likes={likes} 
+        date={date} 
+        />
         </>
     )
 }

@@ -3,7 +3,7 @@ import SearchButtonsComponent from '../SearchButtonsComponent/SearchButtonsCompo
 import FavoriteButtonsComponent from '../FavoriteButtonsComponent/FavoriteButtonsComponent';
 
 const ImageComponent = ({ isSearchPage, id, authorName, image, downloadLink, width, height, likes, date, description, setImageAdded}) => {
-
+    console.log()
     return (
         <article className="image-component">
             <h3 className="image-component__author">{authorName}</h3>

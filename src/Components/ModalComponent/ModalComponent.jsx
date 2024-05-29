@@ -6,12 +6,11 @@ import { modifyDescription } from '../../Features/Favorites/FavoritesSlice';
 const ModalComponent = ({ className, setModalClassName, id, description, width, height, likes, date}) => {
     
     const dispatch = useDispatch();
-    // CUANDO PONGO ESTE ESTADO COMO CLASE AL MODAL, NO SE RE-RENDERIZA, POR LO TANTO NUNCA SE ABRE
     const [modifyDescriptionClassName, setModifyDescriptionClassName] = useState('pop-up-modal__modify-description');
     const [imageDescription,  setImageDescription] = useState(description);
 
+
     const closeModalHandler = () => {
-        console.log('here');
         setModalClassName('pop-up-modal');
     }
 
@@ -25,7 +24,7 @@ const ModalComponent = ({ className, setModalClassName, id, description, width, 
         dispatch(modifyDescription({id: id, description: newDescription}));
         setImageDescription(newDescription);
     }
-    
+
     return (
         <>
         <div className={className} id="pop-up-modal">

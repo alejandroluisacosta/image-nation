@@ -33,8 +33,13 @@ const FavoritesPage = () => {
     };
 
     const filterByPropertyHandler = (event, value) => {
-        const sortedImages = [...renderedImages]; 
-        setRenderedImages(sortedImages.sort((a, b) => a[value] - b[value]));
+        const sortedImages = [...renderedImages];
+        if (value === 'date') {
+            sortedImages.sort((a, b) => new Date(a[value]) - new Date(b[value]));
+        } else {
+            sortedImages.sort((a, b) => a[value] - b[value])
+        }
+        setRenderedImages(sortedImages);
       };
 
       useEffect(() => {
@@ -60,7 +65,19 @@ const FavoritesPage = () => {
         {Favorites.length ?
             <div className='image-list image-list--favorites'>
                 {renderedImages.map((favoriteImage, index) => (
-                    <ImageComponent isSearchPage={false} id={favoriteImage.id} authorName={favoriteImage.authorName} image={favoriteImage.image} description={favoriteImage.description} width={favoriteImage.width} height={favoriteImage.height} likes={favoriteImage.likes} date={favoriteImage.created_at} downloadLink={favoriteImage.downloadLink} key={index}/>
+                    <ImageComponent 
+                    isSearchPage={false} 
+                    id={favoriteImage.id} 
+                    authorName={favoriteImage.authorName} 
+                    image={favoriteImage.image} 
+                    description={favoriteImage.description} 
+                    width={favoriteImage.width} 
+                    height={favoriteImage.height} 
+                    likes={favoriteImage.likes} 
+                    date={new Date(favoriteImage.date).toLocaleDateString('en-US')} 
+                    downloadLink={favoriteImage.downloadLink} 
+                    key={index}
+                    />
                 ))}
             </div>
         :
