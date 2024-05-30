@@ -7,6 +7,7 @@ const ModalComponent = ({ className, setModalClassName, id, description, width, 
     
     const dispatch = useDispatch();
     const [modifyDescriptionClassName, setModifyDescriptionClassName] = useState('pop-up-modal__modify-description');
+    const [buttonClassName, setButtonClassName] = useState('pop-up-modal__button-container');
     const [imageDescription,  setImageDescription] = useState(description);
 
 
@@ -16,6 +17,7 @@ const ModalComponent = ({ className, setModalClassName, id, description, width, 
 
     const openModifyDescriptionTextField = () => {
         setModifyDescriptionClassName('pop-up-modal__modify-description pop-up-modal__modify-description--open');
+        setButtonClassName('pop-up-modal__button-container--closed')
     }
 
     const modifyDescriptionHandler = (event) => {
@@ -24,6 +26,7 @@ const ModalComponent = ({ className, setModalClassName, id, description, width, 
         dispatch(modifyDescription({id: id, description: newDescription}));
         setImageDescription(newDescription);
         setModifyDescriptionClassName('pop-up-modal__modify-description');
+        setButtonClassName('pop-up-modal__button-container');
     }
 
     return (
@@ -35,12 +38,12 @@ const ModalComponent = ({ className, setModalClassName, id, description, width, 
             </span>
             <p className="pop-up-modal__description-title"><strong>Description:</strong></p>
             <p className="pop-up-modal__description">"{imageDescription}"</p>
-            <div className="pop-up-modal__button-container">
-                <button onClick={openModifyDescriptionTextField} className="pop-up-modal__button-container__button" type="submit">Edit</button>
+            <div className={buttonClassName}>
+                <button onClick={openModifyDescriptionTextField} className={"pop-up-modal__button-container__button"} type="submit">Edit</button>
             </div>
             <form onSubmit={modifyDescriptionHandler} className={modifyDescriptionClassName}>
                 <p className='pop-up-modal__modify-description__title'>New description:</p>
-                <input  className='pop-up-modal__modify-description__input'type="text"/>
+                <textarea  className='pop-up-modal__modify-description__input'/>
                 <div className='pop-up-modal__modify-description__button-container'>
                     <button className='pop-up-modal__modify-description__button-container__button'>Submit</button>
                 </div>

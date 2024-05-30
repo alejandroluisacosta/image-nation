@@ -34,11 +34,6 @@
   margin-bottom: 1rem;
 }
 
-.pop-up-modal__modify-description__button-container {
-  display: flex;
-  justify-content: center;
-}
-
 .pop-up-modal__button-container__button {
   border-radius: 2px;
   color: black;
@@ -63,6 +58,11 @@
 .pop-up-modal__modify-description--open {
   display: flex;
   flex-direction: column;
+}
+
+.pop-up-modal__modify-description__button-container {
+  display: flex;
+  justify-content: center;
 }
 
 .pop-up-modal__modify-description__button-container__button {
@@ -97,7 +97,7 @@
 
     .pop-up-modal__description {
       font-size: 1rem;
-      margin-bottom: 2.25rem;
+      margin-bottom: 1rem;
     }
 
     .pop-up-modal__close {
@@ -109,12 +109,17 @@
     .pop-up-modal__button-container {
       margin-bottom: 2.25rem;
     }
+
+    .pop-up-modal__button-container--closed {
+      display: none;
+    }
     
     .pop-up-modal__button-container__button {
       cursor: pointer;
     }
 
     .pop-up-modal__modify-description {
+      display: none;
       position: relative;
       background-color: unset;
       width: unset;
@@ -124,8 +129,30 @@
       margin-left: unset;
       margin-bottom: 2.25rem;
       padding: unset;
-      display: block;
-    
+    }
+
+    .pop-up-modal__modify-description--open {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pop-up-modal__modify-description__title {
+      margin-top: 0;
+    }
+
+    .pop-up-modal__modify-description__title,
+    .pop-up-modal__modify-description__input,
+    .pop-up-modal__modify-description__button {
+      margin-bottom: 2.25rem;
+    }
+
+    .pop-up-modal__modify-description__input {
+      width: 100%;
+    }
+
+    .pop-up-modal__modify-description__button-container {
+      display: flex;
+      justify-content: flex-start;
     }
 
     .pop-up-modal__modify-description__button-container__button {
