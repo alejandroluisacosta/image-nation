@@ -21,7 +21,7 @@ const SearchButtonsComponent = ({ isSearchPage, id, authorName, image, descripti
         <ButtonGroup className="image-component__buttons" aria-label="outlined primary button group">
         <IconButton onClick={addFavoriteHandler}>
             <span className="image-component__buttons__favorite material-symbols-outlined">
-                favorite
+                heart_plus
             </span>
         </IconButton>
         <IconButton onClick={() => saveAs(downloadLink)}>

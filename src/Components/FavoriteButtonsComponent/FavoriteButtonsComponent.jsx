@@ -27,7 +27,7 @@ const FavoriteButtonsComponent = ({ id, description, width, height, likes, date,
     <ButtonGroup sx={{ zIndex: 0}} className="image-component__buttons" aria-label="outlined primary button group">
         <IconButton onClick={removeFavoriteHandler}>
             <span className="image-component__buttons__favorite material-symbols-outlined">
-                favorite
+                heart_minus
             </span>
         </IconButton>
         <IconButton onClick={() => saveAs(downloadLink)}>
