@@ -27,7 +27,6 @@
   position: absolute;
   right: 5%;
   top: 1rem;
-  color: var(--oxy-blue);
   cursor: pointer;
 }
 .pop-up-modal__description {
@@ -60,6 +59,15 @@
   flex-direction: column;
 }
 
+.pop-up-modal__modify-description__close {
+  position: absolute;
+  right: 5%;
+}
+
+.pop-up-modal__modify-description__input {
+  resize: none;
+}
+
 .pop-up-modal__modify-description__button-container {
   display: flex;
   justify-content: center;
@@ -73,6 +81,10 @@
   padding: 0.5rem 2rem;
   font-weight: 300;
   box-shadow: 0.05rem 0.10rem 0.5rem 0rem rgb(215, 215, 215);
+}
+
+.pop-up-modal__modify-description__button-container__cancel {
+  display: none;
 }
 
 .pop-up-modal__modify-description__title,
@@ -135,6 +147,10 @@
       display: flex;
       flex-direction: column;
     }
+    
+      .pop-up-modal__modify-description__close {
+        display: none;
+      }
 
     .pop-up-modal__modify-description__title {
       margin-top: 0;
@@ -151,14 +167,22 @@
     }
 
     .pop-up-modal__modify-description__button-container {
-      display: flex;
       justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 1rem;
     }
 
     .pop-up-modal__modify-description__button-container__button {
       cursor: pointer;
       box-shadow: 0.10rem 0.10rem 0.5rem 0rem rgb(215, 215, 215);
-
+      margin-right: 1.5rem;
+    }
+    
+    .pop-up-modal__modify-description__button-container__cancel {
+      display: block;
+      font-size: 1.25rem;
+      cursor: pointer;
+      text-decoration: underline;
     }
     
     .pop-up-modal__property {

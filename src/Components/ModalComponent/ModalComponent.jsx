@@ -20,6 +20,11 @@ const ModalComponent = ({ className, setModalClassName, id, description, width, 
         setButtonClassName('pop-up-modal__button-container--closed')
     }
 
+    const closeModifyDescriptionTextField = () => {
+        setModifyDescriptionClassName('pop-up-modal__modify-description pop-up-modal__modify-description');
+        setButtonClassName('pop-up-modal__button-container') 
+    }
+
     const modifyDescriptionHandler = (event) => {
         event.preventDefault();
         const newDescription = event.target.elements[0].value;
@@ -43,9 +48,13 @@ const ModalComponent = ({ className, setModalClassName, id, description, width, 
             </div>
             <form onSubmit={modifyDescriptionHandler} className={modifyDescriptionClassName}>
                 <p className='pop-up-modal__modify-description__title'>New description:</p>
+                <span onClick={closeModifyDescriptionTextField} className="pop-up-modal__modify-description__close material-symbols-outlined" id="pop-up-modal__modify-description__close">
+                    close
+                </span>
                 <textarea  className='pop-up-modal__modify-description__input'/>
                 <div className='pop-up-modal__modify-description__button-container'>
                     <button className='pop-up-modal__modify-description__button-container__button'>Submit</button>
+                    <a className="pop-up-modal__modify-description__button-container__cancel" onClick={closeModifyDescriptionTextField}>Cancel</a>
                 </div>
             </form>
             <p className="pop-up-modal__property"><strong>Width:</strong> {width}</p>
