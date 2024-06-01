@@ -19,11 +19,22 @@ const FavoritesSlice = createSlice({
             localStorage.setItem('favorites', JSON.stringify(state.data));
         },
         modifyDescription: (state, action) => {
+            const prevState = [...state.data];
+
             state.data.map((image, index) => {
                 if (image.id === action.payload.id)
                     image.description = action.payload.description;
                 return image; 
             })
+
+            const modifiedDescriptions = state.data.filter((image, index) => {
+                return prevState[index].description !== image.description;
+            });
+
+            if (modifiedDescriptions.length > 0) {
+                notifyModification();
+            }
+            
             localStorage.setItem('favorites', JSON.stringify(state.data));
             return state;
         }

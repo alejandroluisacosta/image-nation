@@ -5,7 +5,10 @@
     text-align: center;
 }
 
+
 .footer--few-favorites {
     position: absolute;
     bottom: 0;
+}
+@media only screen and (min-width: 1000px) {
 }

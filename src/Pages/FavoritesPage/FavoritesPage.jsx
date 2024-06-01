@@ -15,17 +15,24 @@ const FavoritesPage = () => {
 
     
     const Favorites = useSelector(state => state.Favorites.data);
+    const FavoritesQty = useSelector(state => state.Favorites.data.length);
     const [renderedImages, setRenderedImages] = useState(Favorites);
+    const [imageRemoved, setImageRemoved] = useState(false);
     let ImagesFilteredByName = [];
     
-    const notify = () => {
+    const notifyRemotion = () => {
         toast.success("Image removed successfully", {
             position: 'top-center',
             hideProgressBar: true,
         })
     }
-    
-    const [imageRemoved, setImageRemoved] = useState(false);
+
+    const notifyModification = () => {
+        toast.success("Description modified successfully", {
+            position: 'top-center',
+            hideProgressBar: true,
+        })
+    }
     
     const filterByNameHandler = (event) => {
         ImagesFilteredByName = Favorites.filter(image => image.description.includes(event.target.value));
@@ -45,8 +52,8 @@ const FavoritesPage = () => {
       useEffect(() => {
         setRenderedImages(Favorites);
         setImageRemoved(true);
-        notify();
-      }, [Favorites])
+        notifyRemotion();
+      }, [FavoritesQty])
       
     return (
         <>
