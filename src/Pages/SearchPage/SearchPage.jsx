@@ -9,6 +9,7 @@ import FooterComponent from "../../Components/FooterComponent/FooterComponent";
 import NavbarComponent from "../../Components/NavbarComponent/NavbarComponent";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PaginationComponent from "../../Components/PaginationComponent/PaginationComponent";
 
 const SearchPage = () => {
 
@@ -72,7 +73,7 @@ const SearchPage = () => {
                 <Input
                     className="header__search-bar"
                     startDecorator={
-                        <span class="material-symbols-outlined">
+                        <span className="material-symbols-outlined">
                             search
                         </span>
                     }
@@ -106,6 +107,7 @@ const SearchPage = () => {
                 </>
             ))}
         </div>
+        <PaginationComponent />
         <ToastContainer autoClose={500} />
         <FooterComponent className="footer"/>
         </>
