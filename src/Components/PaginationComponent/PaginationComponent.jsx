@@ -1,4 +1,5 @@
 import IconButton from '@mui/joy/IconButton';
+import './PaginationComponent.css';
 
 const PaginationComponent = () => {
     return (

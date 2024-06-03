@@ -29,17 +29,6 @@
     padding: 0 5%;
 }
 
-.pagination-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem;
-}
-
-.pagintaion-container__button {
-    border: 1px solid black;
-    border-radius: 2px;
-}
-
 .footer {
     position: absolute;
     width: 100%
