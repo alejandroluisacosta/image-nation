@@ -6,7 +6,7 @@
 }
 
 
-.footer--few-favorites {
+.footer--stick-to-bottom {
     position: absolute;
     bottom: 0;
 }

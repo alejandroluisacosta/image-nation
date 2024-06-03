@@ -96,10 +96,10 @@ const FavoritesPage = () => {
             </div>
         </>
         }
-        {Favorites.length >= 4 ?
+        {Favorites.length >= 4 || (Favorites.length > 1 && window.innerWidth < 1000) ?
         <FooterComponent className="footer"/>
         :
-        <FooterComponent className="footer footer--few-favorites"/>
+        <FooterComponent className="footer footer--stick-to-bottom"/>
         }
         {imageRemoved ? <ToastContainer autoClose={1500}/> : <></>}
         </>
