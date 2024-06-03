@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import ImageComponent from "../../Components/ImageComponent/ImageComponent";
 import './SearchPage.css';
 import React, { useEffect, useState } from 'react';
