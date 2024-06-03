@@ -69,7 +69,16 @@ const SearchPage = () => {
             <div className="header__content">
                 <h2 className="header__title">High-quality images</h2>
                 <p className="header__subtitle">for high-quality projects</p>
-                <Input className="header__search-bar" placeholder="Search" onKeyDown={searchSubmitHandler}/>
+                <Input
+                    className="header__search-bar"
+                    startDecorator={
+                        <span class="material-symbols-outlined">
+                            search
+                        </span>
+                    }
+                    placeholder="Search"
+                    onKeyDown={searchSubmitHandler}
+                />
             </div>
         </header>
         {loading ?

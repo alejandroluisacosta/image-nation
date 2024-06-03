@@ -10,7 +10,6 @@ import NavbarComponent from '../../Components/NavbarComponent/NavbarComponent';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const FavoritesPage = () => {
 
     
@@ -60,9 +59,21 @@ const FavoritesPage = () => {
         <div className='favorites__header'>
         <NavbarComponent className={"navbar navbar--favorites"}/>
         <h2 className="favorites__header__title">Favorites</h2>
-        <Input className="favorites__header__input" onChange={filterByNameHandler}/>
+        <Input 
+        className="favorites__header__input" 
+        startDecorator={
+            <span class="material-symbols-outlined">
+                filter_list
+            </span>
+        }
+        onChange={filterByNameHandler} 
+        placeholder='Filter by description'/>
         <p>Sort by</p>
-        <Select className="favorites__header__select" onChange={filterByPropertyHandler} defaultValue="date">
+        <Select
+            className="favorites__header__select"
+            onChange={filterByPropertyHandler}
+            defaultValue="date"
+            >
             <Option value="date">Date</Option>
             <Option value="width">Width</Option>
             <Option value="height">Height</Option>
