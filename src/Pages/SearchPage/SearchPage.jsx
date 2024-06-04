@@ -73,7 +73,6 @@ const SearchPage = () => {
         }
     }, [imageAdded]);
 
-    console.log(currentPage)
     return <>
         <header className="header">
             <NavbarComponent className="header__navbar navbar"/>

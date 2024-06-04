@@ -9,6 +9,7 @@ import FooterComponent from '../../Components/FooterComponent/FooterComponent';
 import NavbarComponent from '../../Components/NavbarComponent/NavbarComponent';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { current } from '@reduxjs/toolkit';
 
 const FavoritesPage = () => {
 
@@ -17,6 +18,7 @@ const FavoritesPage = () => {
     const FavoritesQty = useSelector(state => state.Favorites.data.length);
     const [renderedImages, setRenderedImages] = useState(Favorites);
     const [imageRemoved, setImageRemoved] = useState(false);
+    let [currentPage, setCurrentPage] = useState(2);
     let ImagesFilteredByName = [];
     
     const notifyRemotion = () => {
@@ -80,11 +82,57 @@ const FavoritesPage = () => {
             <Option value="likes">Likes</Option>
         </Select>
         </div>
-        {Favorites.length ?
+        {!Favorites.length ?
+            <>
+                <div className='no-images-message-container'>
+                    <p className='no-images-message-container__text'>No favorite images</p>
+                </div>
+            </>
+            : Favorites.length > 0 && Favorites.length <= 20?
             <>
                 <div className='image-list image-list--favorites'>
                     {renderedImages.map((favoriteImage, index) => (
                         <ImageComponent 
+                            isSearchPage={false} 
+                            id={favoriteImage.id} 
+                            authorName={favoriteImage.authorName} 
+                            image={favoriteImage.image} 
+                            description={favoriteImage.description} 
+                            width={favoriteImage.width} 
+                            height={favoriteImage.height} 
+                            likes={favoriteImage.likes} 
+                            date={new Date(favoriteImage.date).toLocaleDateString('en-US')} 
+                            downloadLink={favoriteImage.downloadLink} 
+                            key={index}
+                        />
+                    ))}
+                </div>
+            </>
+            : currentPage === 1 ?
+            <>
+                <div className='image-list image-list--favorites'>
+                    {renderedImages.slice(0, 20).map((favoriteImage, index) => (
+                        <ImageComponent 
+                            isSearchPage={false} 
+                            id={favoriteImage.id} 
+                            authorName={favoriteImage.authorName} 
+                            image={favoriteImage.image} 
+                            description={favoriteImage.description} 
+                            width={favoriteImage.width} 
+                            height={favoriteImage.height} 
+                            likes={favoriteImage.likes} 
+                            date={new Date(favoriteImage.date).toLocaleDateString('en-US')} 
+                            downloadLink={favoriteImage.downloadLink} 
+                            key={index}
+                        />
+                    ))}
+                </div>
+            </>
+            :
+            <>
+            <div className='image-list image-list--favorites'>
+                {renderedImages.slice((currentPage - 1) * 20, currentPage * 20 + 20).map((favoriteImage, index) => (
+                    <ImageComponent 
                         isSearchPage={false} 
                         id={favoriteImage.id} 
                         authorName={favoriteImage.authorName} 
@@ -96,16 +144,10 @@ const FavoritesPage = () => {
                         date={new Date(favoriteImage.date).toLocaleDateString('en-US')} 
                         downloadLink={favoriteImage.downloadLink} 
                         key={index}
-                        />
-                    ))}
-                </div>
-            </>
-        :
-        <>
-            <div className='no-images-message-container'>
-                <p className='no-images-message-container__text'>No favorite images</p>
+                    />
+                ))}
             </div>
-        </>
+            </>
         }
         {Favorites.length >= 4 || (Favorites.length > 1 && window.innerWidth < 1000) ?
         <FooterComponent className="footer"/>
