@@ -10,7 +10,7 @@ const PaginationComponent = ({ currentPage, nextPageHandler, previousPageHandler
                 chevron_left
             </span>
         </IconButton>
-        <p>{currentPage}</p>
+        <p className='pagination-container__page'>{currentPage}</p>
         <IconButton onClick={nextPageHandler}>
             <span className="pagintaion-container__button material-symbols-outlined">
                 chevron_right
