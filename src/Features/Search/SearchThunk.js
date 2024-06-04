@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const GetInitialImagesThunk = createAsyncThunk("Search/GetInitialImages", async () => {
+export const GetInitialImagesThunk = createAsyncThunk("Search/GetInitialImages", async (pageNumber) => {
     try {
-        const request = await fetch('https://api.unsplash.com/photos?per_page=20',
+        const request = await fetch(`https://api.unsplash.com/photos?page=${pageNumber}&per_page=20`,
             {
                 method: 'GET',
                 headers: {'Authorization': 'Client-ID WUIf-dHIq-KxSKQz1So92KwdAmWrxigCMcuZN5RhhNM'}

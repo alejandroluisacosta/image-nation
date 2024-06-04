@@ -15,13 +15,29 @@ const SearchPage = () => {
 
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [imageAdded, setImageAdded] = useState(false);
+    let [currentPage, setCurrentPage] = useState(1);
     const Images = useSelector(state => state.Search.data);
     const ImagesStatus = useSelector(state => state.Search.status);
     const ImagesError = useSelector(state => state.Search.error);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();    
+    
+    const notify = () => {
+        toast.success("Image added successfully", {
+            position: 'top-center',
+            hideProgressBar: true
+        })
+    }
 
-    const [imageAdded, setImageAdded] = useState(false);
+    const nextPageHandler = () => {
+        dispatch(GetInitialImagesThunk(currentPage + 1));
+        setCurrentPage(currentPage + 1);
+    }
 
+    const previousPageHandler = () => {
+        dispatch(GetInitialImagesThunk(currentPage - 1));
+        setCurrentPage(currentPage - 1);
+    }
 
     const searchSubmitHandler = (event) => {
         if (event.key === 'Enter') {
@@ -41,7 +57,7 @@ const SearchPage = () => {
 
     useEffect(() => {
         if (ImagesStatus === 'idle')
-            dispatch(GetInitialImagesThunk());
+            dispatch(GetInitialImagesThunk(1));
         else if (ImagesStatus === 'pending')
             setLoading(true);
         else if (ImagesStatus === 'fulfilled') {
@@ -50,13 +66,6 @@ const SearchPage = () => {
         }
     }, [Images, ImagesStatus, dispatch])
 
-    const notify = () => {
-        toast.success("Image added successfully", {
-            position: 'top-center',
-            hideProgressBar: true
-        })
-    }
-
     useEffect(() => {
         if (imageAdded) {
             notify();
@@ -64,6 +73,7 @@ const SearchPage = () => {
         }
     }, [imageAdded]);
 
+    console.log(currentPage)
     return <>
         <header className="header">
             <NavbarComponent className="header__navbar navbar"/>
@@ -107,7 +117,11 @@ const SearchPage = () => {
                 </>
             ))}
         </div>
-        <PaginationComponent />
+        <PaginationComponent 
+            currentPage={currentPage}
+            nextPageHandler={nextPageHandler}
+            previousPageHandler={previousPageHandler}
+        />
         <ToastContainer autoClose={500} />
         <FooterComponent className="footer"/>
         </>
