@@ -10,6 +10,7 @@ import NavbarComponent from "../../Components/NavbarComponent/NavbarComponent";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PaginationComponent from "../../Components/PaginationComponent/PaginationComponent";
+import FeedbackButtonComponent from "../../Components/FeedbackButtonComponent/FeedbackButtonComponent";
 
 const SearchPage = () => {
 
@@ -74,6 +75,7 @@ const SearchPage = () => {
     }, [imageAdded]);
 
     return <>
+        <FeedbackButtonComponent />
         <header className="header">
             <NavbarComponent className="header__navbar navbar"/>
             <div className="header__content">
