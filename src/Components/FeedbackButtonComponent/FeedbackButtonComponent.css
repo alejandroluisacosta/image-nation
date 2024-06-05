@@ -1,0 +1,11 @@
+.feedbackButton {
+    position: fixed;
+    bottom: 7.5%;
+    right: 5%;
+    transition: all 1s ease;
+}
+
+.feedbackButton:hover {
+    width: 15%;
+    height: 15%;
+}

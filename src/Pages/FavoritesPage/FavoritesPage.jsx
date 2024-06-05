@@ -10,6 +10,7 @@ import NavbarComponent from '../../Components/NavbarComponent/NavbarComponent';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PaginationComponent from '../../Components/PaginationComponent/PaginationComponent';
+import FeedbackButtonComponent from '../../Components/FeedbackButtonComponent/FeedbackButtonComponent';
 
 const FavoritesPage = () => {
 
@@ -66,6 +67,7 @@ const FavoritesPage = () => {
       
     return (
         <>
+        <FeedbackButtonComponent />
         <div className='favorites__header'>
         <NavbarComponent className={"navbar navbar--favorites"}/>
         <h2 className="favorites__header__title">Favorites</h2>
@@ -101,46 +103,6 @@ const FavoritesPage = () => {
                 <div className='image-list image-list--favorites'>
                     {renderedImages.map((favoriteImage, index) => (
                         <ImageComponent 
-                            isSearchPage={false} 
-                            id={favoriteImage.id} 
-                            authorName={favoriteImage.authorName} 
-                            image={favoriteImage.image} 
-                            description={favoriteImage.description} 
-                            width={favoriteImage.width} 
-                            height={favoriteImage.height} 
-                            likes={favoriteImage.likes} 
-                            date={new Date(favoriteImage.date).toLocaleDateString('en-US')} 
-                            downloadLink={favoriteImage.downloadLink} 
-                            key={index}
-                        />
-                    ))}
-                </div>
-            </>
-            : currentPage === 1 ?
-            <>
-                <div className='image-list image-list--favorites'>
-                    {renderedImages.slice(0, 20).map((favoriteImage, index) => (
-                        <ImageComponent 
-                            isSearchPage={false} 
-                            id={favoriteImage.id} 
-                            authorName={favoriteImage.authorName} 
-                            image={favoriteImage.image} 
-                            description={favoriteImage.description} 
-                            width={favoriteImage.width} 
-                            height={favoriteImage.height} 
-                            likes={favoriteImage.likes} 
-                            date={new Date(favoriteImage.date).toLocaleDateString('en-US')} 
-                            downloadLink={favoriteImage.downloadLink} 
-                            key={index}
-                        />
-                    ))}
-                </div>
-            </>
-            :
-            <>
-            <div className='image-list image-list--favorites'>
-                {renderedImages.slice((currentPage - 1) * 20, currentPage * 20).map((favoriteImage, index) => (
-                    <ImageComponent 
                         isSearchPage={false} 
                         id={favoriteImage.id} 
                         authorName={favoriteImage.authorName} 
@@ -152,6 +114,46 @@ const FavoritesPage = () => {
                         date={new Date(favoriteImage.date).toLocaleDateString('en-US')} 
                         downloadLink={favoriteImage.downloadLink} 
                         key={index}
+                        />
+                    ))}
+                </div>
+            </>
+            : currentPage === 1 ?
+            <>
+                <div className='image-list image-list--favorites'>
+                    {renderedImages.slice(0, 20).map((favoriteImage, index) => (
+                        <ImageComponent 
+                        isSearchPage={false} 
+                        id={favoriteImage.id} 
+                        authorName={favoriteImage.authorName} 
+                        image={favoriteImage.image} 
+                        description={favoriteImage.description} 
+                        width={favoriteImage.width} 
+                        height={favoriteImage.height} 
+                        likes={favoriteImage.likes} 
+                        date={new Date(favoriteImage.date).toLocaleDateString('en-US')} 
+                        downloadLink={favoriteImage.downloadLink} 
+                        key={index}
+                        />
+                    ))}
+                </div>
+            </>
+            :
+            <>
+            <div className='image-list image-list--favorites'>
+                {renderedImages.slice((currentPage - 1) * 20, currentPage * 20).map((favoriteImage, index) => (
+                    <ImageComponent 
+                    isSearchPage={false} 
+                    id={favoriteImage.id} 
+                    authorName={favoriteImage.authorName} 
+                    image={favoriteImage.image} 
+                    description={favoriteImage.description} 
+                    width={favoriteImage.width} 
+                    height={favoriteImage.height} 
+                    likes={favoriteImage.likes} 
+                    date={new Date(favoriteImage.date).toLocaleDateString('en-US')} 
+                    downloadLink={favoriteImage.downloadLink} 
+                    key={index}
                     />
                 ))}
             </div>
