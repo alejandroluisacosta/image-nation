@@ -9,7 +9,7 @@ import FooterComponent from '../../Components/FooterComponent/FooterComponent';
 import NavbarComponent from '../../Components/NavbarComponent/NavbarComponent';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { current } from '@reduxjs/toolkit';
+import PaginationComponent from '../../Components/PaginationComponent/PaginationComponent';
 
 const FavoritesPage = () => {
 
@@ -49,6 +49,14 @@ const FavoritesPage = () => {
         }
         setRenderedImages(sortedImages);
       };
+
+      const nextPageHandler = () => {
+        setCurrentPage(currentPage + 1);
+      }
+
+      const previousPageHandler = () => {
+        setCurrentPage(currentPage - 1);
+      }
 
       useEffect(() => {
         setRenderedImages(Favorites);
@@ -149,6 +157,11 @@ const FavoritesPage = () => {
             </div>
             </>
         }
+        <PaginationComponent 
+            currentPage={currentPage}
+            nextPageHandler={nextPageHandler}
+            previousPageHandler={previousPageHandler}
+        />
         {Favorites.length >= 4 || (Favorites.length > 1 && window.innerWidth < 1000) ?
         <FooterComponent className="footer"/>
         :
