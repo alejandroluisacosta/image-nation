@@ -72,7 +72,7 @@ const FavoritesPage = () => {
         <Input 
         className="favorites__header__input" 
         startDecorator={
-            <span class="material-symbols-outlined">
+            <span className="material-symbols-outlined">
                 filter_list
             </span>
         }
@@ -139,7 +139,7 @@ const FavoritesPage = () => {
             :
             <>
             <div className='image-list image-list--favorites'>
-                {renderedImages.slice((currentPage - 1) * 20, currentPage * 20 + 20).map((favoriteImage, index) => (
+                {renderedImages.slice((currentPage - 1) * 20, currentPage * 20).map((favoriteImage, index) => (
                     <ImageComponent 
                         isSearchPage={false} 
                         id={favoriteImage.id} 
@@ -161,6 +161,8 @@ const FavoritesPage = () => {
             currentPage={currentPage}
             nextPageHandler={nextPageHandler}
             previousPageHandler={previousPageHandler}
+            isFavoritesPage={true}
+            favoritesQty={FavoritesQty}
         />
         {Favorites.length >= 4 || (Favorites.length > 1 && window.innerWidth < 1000) ?
         <FooterComponent className="footer"/>
