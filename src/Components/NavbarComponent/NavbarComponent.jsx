@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import './NavbarComponent.css';
-import logoWhite from '/Users/alejandroacosta/Desktop/image-nation/src/assets/ImageNationLogoWhite.png';
-import logoBlack from '/Users/alejandroacosta/Desktop/image-nation/src/assets/ImageNationLogoBlack.png'
+import logoWhite from '/dist/assets/ImageNationLogoWhite.png';
+import logoBlack from '/dist/assets/ImageNationLogoBlack.png';
 
 const NavbarComponent = ({ className }) => {
     return (
