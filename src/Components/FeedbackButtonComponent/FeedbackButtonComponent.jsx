@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import './FeedbackButtonComponent.css'
 
-const feedbackButton = document.getElementById("feedbackButton");
-
-
-
 const FeedbackButtonComponent = () => {
     
     const [innerText, setInnerText] = useState(<span className="material-symbols-outlined"> person_raised_hand </span>)
@@ -19,8 +15,12 @@ const FeedbackButtonComponent = () => {
         setInnerText(<span className="material-symbols-outlined"> person_raised_hand </span>);
     }
 
+    const onClickHandler = () => {
+        window.open("https://forms.gle/As6JbJXzUr2JWyhR6");
+    }
+
     return (
-    <button className="feedbackButton" id="feedbackButton" onMouseOver={onMouseOverHandler} onMouseOut={onMouseOutHandler} href="#">
+    <button className="feedbackButton" id="feedbackButton" onMouseOver={onMouseOverHandler} onMouseOut={onMouseOutHandler} onClick={onClickHandler}>
         {innerText}
     </button>
     )
