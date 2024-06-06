@@ -29,7 +29,6 @@ export const GetSearchedImagesThunk = createAsyncThunk('Search/GetSearchedImages
         );
         if (request.ok) {
             const SearchedImages = await request.json();
-            console.log(SearchedImages);
             return SearchedImages.results;
         }
         return false;

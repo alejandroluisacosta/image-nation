@@ -19,7 +19,7 @@ const FavoritesPage = () => {
     const FavoritesQty = useSelector(state => state.Favorites.data.length);
     const [renderedImages, setRenderedImages] = useState(Favorites);
     const [imageRemoved, setImageRemoved] = useState(false);
-    let [currentPage, setCurrentPage] = useState(2);
+    let [currentPage, setCurrentPage] = useState(1);
     let ImagesFilteredByName = [];
     
     const notifyRemotion = () => {
@@ -64,7 +64,6 @@ const FavoritesPage = () => {
         setImageRemoved(true);
         notifyRemotion();
       }, [FavoritesQty])
-      
     return (
         <>
         <FeedbackButtonComponent />
