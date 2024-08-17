@@ -9,7 +9,6 @@ import { useState } from "react";
 
 const FavoriteButtonsComponent = ({ id, description, width, height, likes, date, downloadLink }) => {
 
-    const Favorites = useSelector(state => state.Favorites.data);
     const dispatch = useDispatch();
     const [modalClassName, setModalClassName] = useState("pop-up-modal")
 

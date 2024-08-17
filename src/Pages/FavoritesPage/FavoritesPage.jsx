@@ -64,6 +64,7 @@ const FavoritesPage = () => {
         setImageRemoved(true);
         notifyRemotion();
       }, [FavoritesQty])
+
     return (
         <>
         <FeedbackButtonComponent />
@@ -165,11 +166,7 @@ const FavoritesPage = () => {
             isFavoritesPage={true}
             favoritesQty={FavoritesQty}
         />
-        {Favorites.length >= 4 || (Favorites.length > 1 && window.innerWidth < 1000) ?
         <FooterComponent className="footer"/>
-        :
-        <FooterComponent className="footer footer--stick-to-bottom"/>
-        }
         {imageRemoved ? <ToastContainer autoClose={1500}/> : <></>}
         </>
     )
