@@ -1,5 +1,7 @@
 .header {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('dist/assets/HeaderImage.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/HeaderImage.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     color: white;
     margin-bottom: 3.5rem;
     padding: 1.75rem 10% 5.5rem 10%;
@@ -37,7 +39,7 @@
 @media only screen and (min-width: 1000px) {
 
     .header {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('dist/assets/HeaderImageDesktop.png');
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/HeaderImageDesktop.png');
         background-position: center 25%;
     }
 
