@@ -12,6 +12,7 @@
     width: 295px;
     height: 280px;
     margin-bottom: 0.5rem;
+    background-repeat: no-repeat;
 }
 
 .image-component__buttons__favorite,

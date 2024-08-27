@@ -8,7 +8,7 @@ const ImageComponent = ({ isSearchPage, id, authorName, image, downloadLink, wid
         <article className="image-component">
             <h3 className="image-component__author">{authorName}</h3>
             <div className='image-component__image-container'>
-                <img className="image-component__image" src={image} alt="owl"/>
+                <div className="image-component__image" style={{backgroundImage: `url(${image})`}}></div>
             </div>
             {
             isSearchPage ? 
